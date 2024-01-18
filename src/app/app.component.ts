@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, Inject } from '@angular/core';
+import { MyserviceService } from './myservice.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Afsar Khan';
+  public choose = '';
+  setvalue(drp:any){
+    this.choose=drp.target.value;
+  }
+ 
 }
