@@ -3,7 +3,7 @@
     Welcome to {{ title }}!
   </h1>
 
-  <h2>using ngSwitch</h2>
+  <!-- <h2>using ngSwitch</h2>
   <select (change)="setvalue($event)">
     <option value="">--select--</option>
     <option value="One">One</option>
@@ -19,6 +19,40 @@
 <h2 *ngSwitchDefault>Default</h2>
   </div>
 
+<h2>Using NgFor</h2>
+<ul>
+  <li *ngFor="let student of Students; let i=index; let f=first; let l=last; let ev=even; let od=odd" >
+  {{i+1}} - {{student.name}} - {{f}} - {{l}} - {{ev}} - {{od}}
+  </li>
+</ul> -->
 
+<h2>track by User</h2>
+
+<!-- <table border="1">
+  <tr *ngFor="let s of students; let i=index; trackBy:TrackByStudentId">
+  <td>{{i+1}}</td>
+  <td>{{s.StudentId}}</td>
+  <td>{{s.name}}</td>
+  <td>{{s.gender}}</td>
+  <td>{{s.course}}</td>
+  <td>{{s.age}}</td>
+  </tr>
+</table>
+
+<br/>
+
+<button (click)="getMoreStudents()">Get more Students</button> -->
+
+<h2>Grouping by example</h2>
+<ul *ngFor="let group of CountryDetails">
+<li>{{group.country}}</li>
+</ul>
+
+<ul>
+<li *ngFor="let person of group.people">
+{{people.name}}
+</li>
+
+</ul>
 
 <router-outlet></router-outlet>
