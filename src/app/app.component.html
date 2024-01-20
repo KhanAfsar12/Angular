@@ -54,12 +54,22 @@
 </ul -->
 
 
-<h2>ngStyle example</h2>
+<!-- <h2>ngStyle example</h2>
 <ul *ngFor="let person of people" >
   <li [ngStyle]="{'color': getcolor(person.Country)}">
   {{person.Name}} - {{person.Country}}
   </li>
-</ul>
+</ul> -->
+
+<h2>ngClass as a String</h2>
+<p [ngClass]="['one two']">using ngClass with string example</p>
+<div *ngFor="let user of users" [ngClass]="'three two'">
+{{user}}
+</div>
+
+<p [ngClass]="{'one':'true', 'three':'false'}">Example of using ngClas as a Object</p>
+
+<div [ngClass]="getcssclass('mode')">Example of using ngClass with component method</div>
 
 
 <router-outlet></router-outlet>

@@ -105,33 +105,44 @@ export class AppComponent {
   //   {'country':'Saudi arabia','people' : [{'name':"Usama bin laden"},{'name':'King Faisal'},{'name':'Ibrahim'}]}
   // ];
 
-people:any[] = [
-  {'Name':'Afsar Khan', 'Country':'India'},
-  {'Name':'Kevin Owens', 'Country':'Canada'},
-  {'Name':'Abdul Gani', 'Country':'Afganistan'},
-  {'Name':'Vladmir Putin', 'Country':'Russia'},
-  {'Name':'ishtayaque Hussain', 'Country':'India'},
-  {'Name':'Mir Jafar', 'Country':'bangladesh'},
-  {'Name':'Kutubuddin aibak', 'Country':'Dehli'}
-];
+// people:any[] = [
+//   {'Name':'Afsar Khan', 'Country':'India'},
+//   {'Name':'Kevin Owens', 'Country':'Canada'},
+//   {'Name':'Abdul Gani', 'Country':'Afganistan'},
+//   {'Name':'Vladmir Putin', 'Country':'Russia'},
+//   {'Name':'ishtayaque Hussain', 'Country':'India'},
+//   {'Name':'Mir Jafar', 'Country':'bangladesh'},
+//   {'Name':'Kutubuddin aibak', 'Country':'Dehli'}
+// ];
 
-getcolor(Country){
-  switch(Country){
-    case 'India':
-      return 'Green';
-    case 'Afganistan':
-      return 'Gold';
-    case 'Canada':
-      return 'Blue';
-    case 'Russia':
-      return 'Red';
-    case 'bangladesh':
-      return 'Brown';
-    case 'Dehli':
-      return 'Yellow';
-      
+// getcolor(Country){
+//   switch(Country){
+//     case 'India':
+//       return 'Green';
+//     case 'Afganistan':
+//       return 'Gold';
+//     case 'Canada':
+//       return 'Blue';
+//     case 'Russia':
+//       return 'Red';
+//     case 'bangladesh':
+//       return 'Brown';
+//     case 'Dehli':
+//       return 'Yellow';
+
+//   }
+// }
+
+users = ['Afsar', 'Abrar', 'Salim', 'Abdul rahman'];
+
+getcssclass(flag:string){
+  let cssclass ;
+  if(flag=='mode'){
+    cssclass={'one':true, 'two':true}
   }
+  else{
+    cssclass = {'one':false, 'two':true}
+  }
+  return cssclass
 }
-
-
 }
