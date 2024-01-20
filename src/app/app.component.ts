@@ -99,24 +99,39 @@ export class AppComponent {
   constructor(){
   }
 
-  CountryDetails:any[]=[
-    {
-      'country':'India',
-      'people' : [
-        {'name':"Afsar Khan"},
-        {'name':'Abrar Khan'},
-        {'name':'Farhan'}
-    ]
-    },
+  // CountryDetails:any[]=[
+  //   {'country':'India','people' : [{'name':"Afsar Khan"},{'name':'Abrar Khan'},{'name':'Farhan'}]},
 
-    {
-      'country':'Saudi arabia',
-      'people' : [
-        {'name':"Usama bin laden"},
-        {'name':'King Faisal'},
-        {'name':'Ibrahim'}
-    ]
-    }
-  ];
+  //   {'country':'Saudi arabia','people' : [{'name':"Usama bin laden"},{'name':'King Faisal'},{'name':'Ibrahim'}]}
+  // ];
+
+people:any[] = [
+  {'Name':'Afsar Khan', 'Country':'India'},
+  {'Name':'Kevin Owens', 'Country':'Canada'},
+  {'Name':'Abdul Gani', 'Country':'Afganistan'},
+  {'Name':'Vladmir Putin', 'Country':'Russia'},
+  {'Name':'ishtayaque Hussain', 'Country':'India'},
+  {'Name':'Mir Jafar', 'Country':'bangladesh'},
+  {'Name':'Kutubuddin aibak', 'Country':'Dehli'}
+];
+
+getcolor(Country){
+  switch(Country){
+    case 'India':
+      return 'Green';
+    case 'Afganistan':
+      return 'Gold';
+    case 'Canada':
+      return 'Blue';
+    case 'Russia':
+      return 'Red';
+    case 'bangladesh':
+      return 'Brown';
+    case 'Dehli':
+      return 'Yellow';
+      
+  }
+}
+
 
 }

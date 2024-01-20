@@ -43,16 +43,23 @@
 
 <button (click)="getMoreStudents()">Get more Students</button> -->
 
-<h2>Grouping by example</h2>
+<!-- <h2>Grouping by example</h2>
 <ul *ngFor="let group of CountryDetails">
 <li>{{group.country}}</li>
-</ul>
-
 <ul>
-<li *ngFor="let person of group.people">
-{{people.name}}
-</li>
+  <li *ngFor="let person of group.people">
+  {{person.name}}
+  </li>
+  </ul>
+</ul -->
 
+
+<h2>ngStyle example</h2>
+<ul *ngFor="let person of people" >
+  <li [ngStyle]="{'color': getcolor(person.Country)}">
+  {{person.Name}} - {{person.Country}}
+  </li>
 </ul>
+
 
 <router-outlet></router-outlet>
