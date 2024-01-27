@@ -3,4 +3,10 @@
     Welcome to {{ title }}
   </h1>
 
-  
+  Enter your Name:- <input [value]="data" (input)="data=$event.target.value"><br>
+  your name:- {{data}}
+<br><br>
+  <input [(ngModel)]="data1"><br>
+  {{data1}}
+
+  <router-outlet></router-outlet>

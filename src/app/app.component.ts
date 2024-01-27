@@ -7,17 +7,12 @@ import { MyserviceService } from './myservice.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // title = 'Afsar Khan';
-  // first_name = "Afsar";
-  // last_name = "Khan";
-  // a = 10;
-  // b=3;
-
-  // cols:number=3;
-  // bdr:number=5;
+  title = 'Afsar Khan';
+ 
   constructor(){
   }
-data:string="Afsar"
+data:string="Afsar";
+data1:string="Ishtiyaque";
 
 }
 
