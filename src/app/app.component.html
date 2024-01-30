@@ -2,11 +2,43 @@
   <h1>
     Welcome to {{ title }}
   </h1>
+  <h3>--------------------------Example of parameterized pipes--------------------------</h3>
+  {{dob}} <br>
+  Medium:- {{dob|date:"medium"}} <br>
+  Specific Format:- {{dob|date:"dd/MM/yyyy"}} <br>
+  medium time:- {{dob|date: "mediumTime"}} <br>
+  Salary:- {{salary| currency:"INR" :true}}
 
-  Enter your Name:- <input [value]="data" (input)="data=$event.target.value"><br>
-  your name:- {{data}}
-<br><br>
-  <input [(ngModel)]="data1"><br>
-  {{data1}}
+  <h3>--------------------------Exaple of Chainig pipes--------------------------</h3>
+  <h4>{{name|uppercase}}-{{position|lowercase}}</h4>
+  <h4>{{work|titlecase}}</h4><br>
+  <h3>Slice Example</h3>
+  <h4>{{work|slice:5}}</h4>
+  <h4>{{work|slice:5:8}}</h4>
+
+  <h3>--------------------------Example of DatePipes--------------------------</h3>
+  <h4>{{currentDate}}</h4>
+  <h4>{{currentDate | date:"shortDate"}}</h4>
+  <h4>{{currentDate | date:"longDate"}}</h4>
+  <h4>{{currentDate | date:"fullDate"}}</h4>
+
+  <h3>--------------------------Example of percantPipe--------------------------</h3>
+  <h4>{{myNumber}}</h4>
+  <h4>{{myNumber | percent}}</h4>
+  <h4>{{myNumber | percent:'2.4-5'}}</h4>
+
+  <h3>--------------------------Example of decimalPipe--------------------------</h3>
+  <h4>{{myNumber}}</h4>
+  <h4>{{myNumber | number}}</h4>
+  <h4>{{myNumber | number:'2.4-5'}}</h4>
+
+
+  <h3>--------------------------Example of currencyPipe--------------------------</h3>
+  <h3>{{myNumber}}</h3>
+  <h3>{{myNumber | currency}}</h3>
+  <h3>{{myNumber | currency:'INR'}}</h3>
+  <h3>{{myNumber | currency:'INR':'code'}}</h3>
+
+
 
   <router-outlet></router-outlet>
