@@ -18,6 +18,15 @@ export class AppComponent {
 
   currentDate = new Date();
   myNumber:number = 0.1234567893455;
+
+  employees:any = [
+    {code:'001', name:"Afsar", gender:"male", Salary:50000},
+    {code:'002', name:"Aman", gender:"male", Salary:500000},
+    {code:'003', name:"Salim", gender:"male", Salary:350000},
+    {code:'004', name:"Aisha", gender:"female", Salary:50000},
+    {code:'005', name:"Farman", gender:"male", Salary:45600}
+  ]
+
   constructor(){
   }
 

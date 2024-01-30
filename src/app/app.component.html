@@ -41,4 +41,16 @@
 
 
 
+  <h3>--------------------------Example of customePipe--------------------------</h3>
+  <table border="1">
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.code}}</td>
+      <td>{{employee.name | mypipe:employee.gender}}</td>
+      <td>{{employee.gender}}</td>
+      <td>{{employee.Salary}}</td>
+    </tr>
+  </table>
+
+
+
   <router-outlet></router-outlet>
