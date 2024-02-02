@@ -1,5 +1,6 @@
 import { Component, HostListener, Inject } from '@angular/core';
 import { MyserviceService } from './myservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +28,12 @@ export class AppComponent {
     {code:'005', name:"Farman", gender:"male", Salary:45600}
   ]
 
-  constructor(){
+  constructor(private router:Router){}
+  student(){
+    this.router.navigate(['/student']);
+  }
+  employee(){
+    this.router.navigate(['/studentdetails'])
   }
 
 }

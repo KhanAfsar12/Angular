@@ -9,9 +9,12 @@ import { EmployeeComponent } from './employee/employee.component';
 import { CompanyModule } from './company/company.module';
 import { MyserviceService } from './myservice.service';
 import { MypipePipe } from './mypipe.pipe';
+import { StudentComponent } from './student/student.component';
+import { StudentdetailsComponent } from './studentdetails/studentdetails.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
-  declarations: [AppComponent,EmployeeComponent, MypipePipe],
+  declarations: [AppComponent,EmployeeComponent, MypipePipe, StudentComponent, StudentdetailsComponent, PagenotfoundComponent],
   imports: [BrowserModule,AppRoutingModule,CompanyModule,FormsModule],
   providers: [MyserviceService],    //for Service 
   bootstrap: [AppComponent]
