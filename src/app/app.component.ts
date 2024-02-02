@@ -1,6 +1,7 @@
 import { Component, HostListener, Inject } from '@angular/core';
 import { MyserviceService } from './myservice.service';
 import { Router } from '@angular/router';
+import {NewserviceService} from './newservice.service';
 
 @Component({
   selector: 'app-root',
