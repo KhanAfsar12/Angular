@@ -2,63 +2,16 @@
   <h1>
     Welcome to {{ title }}
   </h1>
-  <h3>--------------------------Example of parameterized pipes--------------------------</h3>
-  {{dob}} <br>
-  Medium:- {{dob|date:"medium"}} <br>
-  Specific Format:- {{dob|date:"dd/MM/yyyy"}} <br>
-  medium time:- {{dob|date: "mediumTime"}} <br>
-  Salary:- {{salary| currency:"INR" :true}}
 
-  <h3>--------------------------Exaple of Chainig pipes--------------------------</h3>
-  <h4>{{name|uppercase}}-{{position|lowercase}}</h4>
-  <h4>{{work|titlecase}}</h4><br>
-  <h3>Slice Example</h3>
-  <h4>{{work|slice:5}}</h4>
-  <h4>{{work|slice:5:8}}</h4>
+    <h2>{{text}}</h2>
 
-  <h3>--------------------------Example of DatePipes--------------------------</h3>
-  <h4>{{currentDate}}</h4>
-  <h4>{{currentDate | date:"shortDate"}}</h4>
-  <h4>{{currentDate | date:"longDate"}}</h4>
-  <h4>{{currentDate | date:"fullDate"}}</h4>
+      <table border="10">
+        <tr *ngFor="let item of emp">
+          <td>Emp code:</td>{{item.empcode}}
+          <td>Emp Name:</td>{{item.name}}
+        </tr>
+      </table>
 
-  <h3>--------------------------Example of percantPipe--------------------------</h3>
-  <h4>{{myNumber}}</h4>
-  <h4>{{myNumber | percent}}</h4>
-  <h4>{{myNumber | percent:'2.4-5'}}</h4>
-
-  <h3>--------------------------Example of decimalPipe--------------------------</h3>
-  <h4>{{myNumber}}</h4>
-  <h4>{{myNumber | number}}</h4>
-  <h4>{{myNumber | number:'2.4-5'}}</h4>
-
-
-  <h3>--------------------------Example of currencyPipe--------------------------</h3>
-  <h3>{{myNumber}}</h3>
-  <h3>{{myNumber | currency}}</h3>
-  <h3>{{myNumber | currency:'INR'}}</h3>
-  <h3>{{myNumber | currency:'INR':'code'}}</h3>
-
-
-
-  <h3>--------------------------Example of customePipe--------------------------</h3>
-  <table border="1">
-    <tr *ngFor="let employee of employees">
-      <td>{{employee.code}}</td>
-      <td>{{employee.name | mypipe:employee.gender}}</td>
-      <td>{{employee.gender}}</td>
-      <td>{{employee.Salary}}</td>
-    </tr>
-  </table>
-
-
-  <h3>--------------------------Example of Routing--------------------------</h3>
-  <a [routerLink]="['/student']" >Student</a> <br>
-  <a [routerLink]="['/Parentdetails']" >ParentDetails</a>
-  <div style="display: flex; gap: 10px;">
-  <button (click)="student()">Std</button>
-  <button (click)="employee()">Emp</button>
-</div>
-  <div>
+    <div>
   <router-outlet></router-outlet>
 </div>
