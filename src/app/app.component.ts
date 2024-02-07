@@ -11,13 +11,10 @@ import {NewserviceService} from './newservice.service';
 })
 export class AppComponent {
   title = 'Afsar Khan';
-  text:String;
-  emp:any[];
- constructor(private _newservice:NewserviceService){}
+ 
+ constructor(){}
 
- ngOnInit(){
-  this.emp = this._newservice.employees;
-  this.text = this._newservice.display();
- }
+//  ngOnInit(){
+
+// }
 }
-
