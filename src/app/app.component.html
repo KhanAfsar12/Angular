@@ -21,7 +21,8 @@
           <div class="form-group"><input type="Password" formControlName="userPassword" placeholder="Your Password"></div>
           <br>
           <div>
-            <input type="Submit" value="Post Data" [disabled]="!signupForm.valid">
+            <button type="button" (click)="PostData()" [disabled] ="!signupForm.valid">Submit</button>
+            <button type="button" (click)="resetForm()">Reset</button>
           </div>
         </form>
       </div>

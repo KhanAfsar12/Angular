@@ -31,11 +31,14 @@ ngOnInit(){
 }
 
 PostData(signupForm:NgForm){
-  this.FirstName = signupForm.controls.fName.value;
-  this.LastName = signupForm.controls.lName.value;
-  this.Email = signupForm.controls.emailId.value;
-  console.log(this.FirstName+" "+this.LastName)
+  this.FirstName = this.signupForm.get('fName').value;
+  console.log(this.FirstName)
+}
 
-  console.log(signupForm.controls);
+resetForm(){
+  this.signupForm.reset({
+    fName:'Afsar', 
+    emailId:'ka484564@gmail.com'
+  })
 }
 }
