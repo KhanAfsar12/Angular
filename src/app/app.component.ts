@@ -2,7 +2,7 @@ import { Component, HostListener, Inject } from '@angular/core';
 import { MyserviceService } from './myservice.service';
 import { Router } from '@angular/router';
 import {NewserviceService} from './newservice.service';
-import { FormGroup, FormControl, FormBuilder, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -20,10 +20,10 @@ export class AppComponent {
  
  constructor(private frmbuilder:FormBuilder){
   this.signupForm = frmbuilder.group({
-    fName : new FormControl(),
-    lName : new FormControl(),
-    emailId : new FormControl(),
-    userPassword : new FormControl()
+    fName : ['',Validators.required],
+    lName : ['',Validators.required],
+    emailId :['',Validators.required, Validators.email],
+    userPassword : ['',Validators.required]
   });
  }
 
