@@ -13,10 +13,11 @@ import { StudentComponent } from './student/student.component';
 import { StudentdetailsComponent } from './studentdetails/studentdetails.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { StudentregistrationComponent } from './studentregistration/studentregistration.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent,EmployeeComponent, MypipePipe, StudentComponent, StudentdetailsComponent, PagenotfoundComponent, StudentregistrationComponent],
-  imports: [BrowserModule,AppRoutingModule,CompanyModule,FormsModule],
+  imports: [BrowserModule,AppRoutingModule,CompanyModule,FormsModule, ReactiveFormsModule],
   providers: [MyserviceService],    //for Service 
   bootstrap: [AppComponent]
 })
