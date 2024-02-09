@@ -3,6 +3,7 @@ import { MyserviceService } from './myservice.service';
 import { Router } from '@angular/router';
 import {NewserviceService} from './newservice.service';
 import { FormGroup, FormControl, FormBuilder, NgForm, Validators } from '@angular/forms';
+import { formsignup } from './formsignup';
 
 @Component({
   selector: 'app-root',
@@ -22,12 +23,22 @@ export class AppComponent {
   this.signupForm = frmbuilder.group({
     fName : ['',Validators.required],
     lName : ['',Validators.required],
-    emailId :['',Validators.required, Validators.email],
+    emailId :['',[Validators.required, Validators.email]],
     userPassword : ['',Validators.required]
   });
  }
 
 ngOnInit(){
+  // this.signupForm.get('fName').valueChanges.subscribe(uname=>{
+  //   console.log('fName changed:'+uname);
+  // })
+
+  this.signupForm.valueChanges.subscribe((uname:formsignup)=>{
+    console.log('fName changed:'+uname.fName);
+    console.log('fName changed:'+uname.lName);
+    console.log('fName changed:'+uname.emailId);
+    console.log('fName changed:'+uname.userPassword);
+  });
 }
 
 PostData(signupForm:NgForm){
@@ -40,5 +51,13 @@ resetForm(){
     fName:'Afsar', 
     emailId:'ka484564@gmail.com'
   })
+}
+
+fillData(){
+  this.signupForm.setValue({
+  'fName':'Afsar Khan',
+  'lName':'Akhtar Hussain',
+  'emailId':'ka484564@gmail.com',
+  'userPassword':'123e2323ddsws'})
 }
 }
