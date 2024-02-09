@@ -33,12 +33,20 @@ ngOnInit(){
   //   console.log('fName changed:'+uname);
   // })
 
-  this.signupForm.valueChanges.subscribe((uname:formsignup)=>{
-    console.log('fName changed:'+uname.fName);
-    console.log('fName changed:'+uname.lName);
-    console.log('fName changed:'+uname.emailId);
-    console.log('fName changed:'+uname.userPassword);
-  });
+  // this.signupForm.valueChanges.subscribe((uname:formsignup)=>{
+  //   console.log('fName changed:'+uname.fName);
+  //   console.log('fName changed:'+uname.lName);
+  //   console.log('fName changed:'+uname.emailId);
+  //   console.log('fName changed:'+uname.userPassword);
+  // });
+
+  // this.signupForm.get('emailId').statusChanges.subscribe(status=>{
+  //   console.log('emailId changed:'+status);
+  // })
+
+  this.signupForm.statusChanges.subscribe(status=>{
+    console.log('Form changed:'+status);
+  })
 }
 
 PostData(signupForm:NgForm){
