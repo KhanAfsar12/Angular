@@ -2,7 +2,7 @@ import { Component, HostListener, Inject } from '@angular/core';
 import { MyserviceService } from './myservice.service';
 import { Router } from '@angular/router';
 import {NewserviceService} from './newservice.service';
-import { FormGroup, FormControl, FormBuilder, NgForm, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, NgForm, Validators, FormArray } from '@angular/forms';
 import { formsignup } from './formsignup';
 
 @Component({
@@ -42,11 +42,21 @@ ngOnInit(){
 
   // this.signupForm.get('emailId').statusChanges.subscribe(status=>{
   //   console.log('emailId changed:'+status);
+  // // })
+
+  // this.signupForm.statusChanges.subscribe(status=>{
+  //   console.log('Form changed:'+status);
   // })
 
-  this.signupForm.statusChanges.subscribe(status=>{
-    console.log('Form changed:'+status);
-  })
+  const arr = new FormArray([
+    new FormControl(),
+    new FormControl()
+  ]);
+  // arr.patchValue(['Afsar']);
+  arr.reset(['Name', 'Last Name']);
+  console.log(arr.value);
+  console.log(arr.status);
+
 }
 
 PostData(signupForm:NgForm){
