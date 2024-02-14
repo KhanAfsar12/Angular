@@ -1,38 +1,51 @@
 <h1>
   Welcome to {{title}}
 </h1>
-<form novalidate [formGroup]="FormGroup">
-  <div class="row">
-    <div class="col-xs-12 form-group marL40">
-      <div style="margin-top:0px;" [formGroupName]="itemRows">
-        <div class="row panel-heading text-bold" style="text-align:left; margin-top:0px; margin-left:10px;">
-          Form Details
+<h3>Template Driven Form</h3>
+<form #userForm="ngForm" (ngSubmit)="OnFormSubmit(userForm)">
+  <table>
+    <tr>
+      <td>Name</td>
+      <td>
+        <input uname="uname" [ngModel]="user.username" required #uname="ngModel">
+        <div *ngIf="uname.invalid">
+          Name required.
         </div>
-        <ng-container *ngIf="FormGroup.controls.itemRows != null">
-          <div *ngFor="let itemrows of FormGroup.controls.itemRows.controls; let i=index" [formGroupName]="i">
-            <div class="row">
-              <div class="col-md-2 form-group">
-                <input matInput placeholder="Name" formControlName="Name">
-              </div>
-              <div class="col-md-2 form-group">
-                <input matInput placeholder="RollNo" formControlName="RollNo">
-              </div>
-              <div class="col-md-2 form-group">
-                <input matInput placeholder="Class" formControlName="Class">
-              </div>
-              <div class="col-md-2 form-group">
-                <input matInput placeholder="MobileNo" formControlName="MobileNo">
-              </div>
-              <div class="col-md-2 form-group">
-                <button (click)="deleteRow(i)" class="btn btn-danger">X</button>
-              </div>
-            </div>
-          </div>
-        </ng-container>
-        <div class="form-group" style="text-align:right">
-          <button type="button" (click)="addNewRow()" [disabled]="FormGroup.invalid" class="btn btn-primary">Add More</button>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Gender:</td>
+      <td>
+        <input type="radio" value="male" name="gender" [ngModel]="user.gender" required #gender="ngModel">Male
+        <input type="radio" value="female" name="gender" [ngModel]="user.gender" required #gender="ngModel">Female
+        <div *ngIf="gender.invalid">Gender required</div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Are you married</td>
+      <td>
+        <input type="checkbox" name="married" [ngModel]="user.isMarried">
+      </td>
+    </tr>
+
+    <tr>
+      <td>Accept T&C</td>
+      <td>
+        <input type="checkbox" name="tc" [(ngModel)]="user.isTCAccepted" readonly #tc="ngModel">
+        <div *ngIf="tc.invalid">
+          Accept T&C
         </div>
-      </div>
-    </div>
-  </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <button>Submit</button>
+        <button type="button" (click)="setDefaultValues()">Set Default</button>
+        <button type="button" (click)="resetForm(userForm)">Reset</button>
+      </td>
+    </tr>
+  </table>
 </form>
