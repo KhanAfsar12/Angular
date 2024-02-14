@@ -1,33 +1,38 @@
-<!--The content below is only a placeholder and can be replaced.-->
-  <h1>
-    Welcome to {{ title }}
-  </h1>
-
-  <div class="container">
-    <div class="row">
-      <div class="form_bg">
-        <form [formGroup]="signupForm" (ngSubmit)="PostData(signupForm)">
-          <div class="form-group">
-            <input type="text" formControlName="fName" placeholder="Your first Name">
-            <!-- <span *ngFor="signupForm.control['fName'].haserror(required)">
-              First name is required!
-            </span> -->
+<h1>
+  Welcome to {{title}}
+</h1>
+<form novalidate [formGroup]="FormGroup">
+  <div class="row">
+    <div class="col-xs-12 form-group marL40">
+      <div style="margin-top:0px;" [formGroupName]="itemRows">
+        <div class="row panel-heading text-bold" style="text-align:left; margin-top:0px; margin-left:10px;">
+          Form Details
+        </div>
+        <ng-container *ngIf="FormGroup.controls.itemRows != null">
+          <div *ngFor="let itemrows of FormGroup.controls.itemRows.controls; let i=index" [formGroupName]="i">
+            <div class="row">
+              <div class="col-md-2 form-group">
+                <input matInput placeholder="Name" formControlName="Name">
+              </div>
+              <div class="col-md-2 form-group">
+                <input matInput placeholder="RollNo" formControlName="RollNo">
+              </div>
+              <div class="col-md-2 form-group">
+                <input matInput placeholder="Class" formControlName="Class">
+              </div>
+              <div class="col-md-2 form-group">
+                <input matInput placeholder="MobileNo" formControlName="MobileNo">
+              </div>
+              <div class="col-md-2 form-group">
+                <button (click)="deleteRow(i)" class="btn btn-danger">X</button>
+              </div>
+            </div>
           </div>
-          <br>
-          <div class="form-group"><input type="text" formControlName="lName" placeholder="Your last Name"></div>
-          <br>
-          <div class="form-group"><input type="text" formControlName="emailId" placeholder="Your Email Id"></div>
-          <br>
-          <div class="form-group"><input type="Password" formControlName="userPassword" placeholder="Your Password"></div>
-          <br>
-          <div>
-            <button type="button" (click)="PostData()" [disabled] ="!signupForm.valid">Submit</button>
-            <button type="button" (click)="resetForm()">Reset</button>
-            <button type="button" (click)="fillData()">Fill Data</button>
-
-          </div>
-        </form>
+        </ng-container>
+        <div class="form-group" style="text-align:right">
+          <button type="button" (click)="addNewRow()" [disabled]="FormGroup.invalid" class="btn btn-primary">Add More</button>
+        </div>
       </div>
     </div>
-  </div>  
-  <router-outlet></router-outlet>
+  </div>
+</form>

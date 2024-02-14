@@ -1,81 +1,50 @@
-import { Component, HostListener, Inject } from '@angular/core';
-import { MyserviceService } from './myservice.service';
-import { Router } from '@angular/router';
-import {NewserviceService} from './newservice.service';
-import { FormGroup, FormControl, FormBuilder, NgForm, Validators, FormArray } from '@angular/forms';
-import { formsignup } from './formsignup';
+import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [NewserviceService]
+  
 })
-export class AppComponent {
-  title = 'Afsar Khan';
-  signupForm : FormGroup;
-  FirstName : string="";
-  LastName : string="";
-  Email : string="";
-  Password : string="";
- 
- constructor(private frmbuilder:FormBuilder){
-  this.signupForm = frmbuilder.group({
-    fName : ['',Validators.required],
-    lName : ['',Validators.required],
-    emailId :['',[Validators.required, Validators.email]],
-    userPassword : ['',Validators.required]
+export class AppComponent implements OnInit {
+  title = "Afsar Khan"
+  FormGroup : FormGroup;
+  TotalRow : number;
+constructor(private _fb:FormBuilder){}
+
+ngOnInit():void{
+  this.FormGroup = this._fb.group({
+    itemRows : this._fb.array([this.initItemRow()]),
   });
- }
-
-ngOnInit(){
-  // this.signupForm.get('fName').valueChanges.subscribe(uname=>{
-  //   console.log('fName changed:'+uname);
-  // })
-
-  // this.signupForm.valueChanges.subscribe((uname:formsignup)=>{
-  //   console.log('fName changed:'+uname.fName);
-  //   console.log('fName changed:'+uname.lName);
-  //   console.log('fName changed:'+uname.emailId);
-  //   console.log('fName changed:'+uname.userPassword);
-  // });
-
-  // this.signupForm.get('emailId').statusChanges.subscribe(status=>{
-  //   console.log('emailId changed:'+status);
-  // // })
-
-  // this.signupForm.statusChanges.subscribe(status=>{
-  //   console.log('Form changed:'+status);
-  // })
-
-  const arr = new FormArray([
-    new FormControl(),
-    new FormControl()
-  ]);
-  // arr.patchValue(['Afsar']);
-  arr.reset(['Name', 'Last Name']);
-  console.log(arr.value);
-  console.log(arr.status);
-
 }
 
-PostData(signupForm:NgForm){
-  this.FirstName = this.signupForm.get('fName').value;
-  console.log(this.FirstName)
+initItemRow(){
+  return this._fb.group({
+    Name : [''],
+    RollNo : [''],
+    Class : [''],
+    MobileNo : ['']
+  });
 }
 
-resetForm(){
-  this.signupForm.reset({
-    fName:'Afsar', 
-    emailId:'ka484564@gmail.com'
-  })
+addNewRow(){
+  const control = <FormArray>this.FormGroup.controls['itemRows'];
+  control.push(this.initItemRow());
 }
 
-fillData(){
-  this.signupForm.setValue({
-  'fName':'Afsar Khan',
-  'lName':'Akhtar Hussain',
-  'emailId':'ka484564@gmail.com',
-  'userPassword':'123e2323ddsws'})
+deleteRow(index : number){
+  const control = <FormArray>this.FormGroup.controls['itemRows'];
+  if(control!=null){
+    this.TotalRow = control.value.length;
+  }
+  if(this.TotalRow>1){
+    control.removeAt(index);
+  }
+  else{
+    alert('One record is mendatory.');
+    return false;
+  }
 }
+
 }
